@@ -5,6 +5,7 @@
         Tarea 1
 '''
 
+# Inciso 1 de la tarea
 ''' Para mayor información sobre clases consulté https://www.geeksforgeeks.org/python/python-classes-and-objects/ o si alguien prefiere complicarse
 también está la documentación de python https://docs.python.org/3/tutorial/classes.html '''
 class matrix:
@@ -127,6 +128,7 @@ class matrix:
             print(self.matrix_values[i])
         print("\n")
 
+# Inciso 2 de la tarea
 ''' Para más información sobre herencia se puede consultar https://www.geeksforgeeks.org/python/inheritance-in-python/'''
 class cartesian_point:
     def __init__(self, x: float, y: float, z: float):
@@ -195,6 +197,13 @@ class vector(cartesian_point):
         mag = pow((point[0] ** 2) + (point[1] ** 2) + (point[2] ** 2), 0.5)
         return mag 
 
+# Inciso 3 de la tarea
+''' Para desarrollar esta función me inspiré en los memory allocators que implementé en Programación Avanzada en C, eso está en 
+https://github.com/Old-Lx/Advanced_C_Programming/blob/main/Tarea4 si usas este u otro de mis códigos, dale a la estrellita al menos =D'''
+class memory_bus:
+    # donde n es el tamaño de la memoria
+    def __init__(self, n):
+        self.storage = [0] * n
 
 def main():
     matriz_1 = matrix(5, 5)
