@@ -204,6 +204,45 @@ class memory_bus:
     # donde n es el tamaño de la memoria
     def __init__(self, n):
         self.storage = [0] * n
+    
+    # Tiempo de la memoria
+    time: float
+
+    def write(self, memory_pos: int, data):
+        for i in range(self.time):
+            print("¡Escribiendo!")
+        self.storage[memory_pos] = data
+
+    def read(self, memory_pos: int):
+        for i in range(self.time):
+            print("¡Leyendo!")
+        return self.storage[memory_pos]
+
+class sram(memory_bus):
+    def __init__(self, n):
+        super().__init__(n)
+        self.time = 1e-9 * 1e1000 # Las sram duran entre 1 a 10ns en leer/escribir
+
+class ram(memory_bus):
+    def __init__(self, n):
+        super().__init__(n)
+        self.time = 50e-9 * 1e1000 # Las ram duran entre ~50ns en leer/escribir
+
+class ssd(memory_bus):
+    def __init__(self, n):
+        super().__init__(n)
+        self.time = 25e-6 * 1e1000 # Las sram duran entre ~25mus en leer/escribir
+
+class hdd(memory_bus):
+    def __init__(self, n):
+        super().__init__(n)
+        self.time = 2e-3 * 1e1000 # Las sram duran entre 2ms en leer/escribir
+
+def read_memory(memory: memory_bus, memory_pos: int):
+    return memory.storage[memory_pos]
+
+def write_memory(memory: memory_bus, memory_pos: int, data):
+    memory.write(memory_pos, data)
 
 def main():
     matriz_1 = matrix(5, 5)

@@ -14,8 +14,8 @@
     - [x] La clase hijo que consumirá la clase Punto será un Vector cuyo origen siempre será 0 y debe tener un único método publico que permita calcular la magnitud del vector.
   
 3. Polimorfismo
-   - [ ] Se debe crear tres clases distintas, una representara un disco duro, otra representara una memoria ram y por último una representara una memoria sram.
-   - [ ] Para cada clase se tendrá un método de lectura y uno de escritura para un arreglo de tamaño N que representará su memoria interna. Se deberán modelar los retrasos de lectura y escritura para cada uno según su funcionamiento real (SRAM <- RAM <- Disco Duro).
+   - [x] Se debe crear tres clases distintas, una representara un disco duro, otra representara una memoria ram y por último una representara una memoria sram.
+   - [x] Para cada clase se tendrá un método de lectura y uno de escritura para un arreglo de tamaño N que representará su memoria interna. Se deberán modelar los retrasos de lectura y escritura para cada uno según su funcionamiento real (SRAM <- RAM <- Disco Duro).
    - [ ] Se deberán crear dos funciones polimórficas que deben aceptar las tres clases como si se tratase de un bus manejador de memoria.
    - [ ] Se tendrá un esquema de dos funciones una que se encarga de leer de una posición en memoria y otra que busca escribir en una posición de memoria.
 
@@ -63,7 +63,7 @@
     - [ ] El schema que deben validar viene dado por el archivo .yaml a generar. Para esta tarea en particular este archivo aceptara N cantidad de elementos con los siguientes ítems: nombre, altura, peso, edad, lista de habilidades, descripcion.
 
 #### Restricciones
-    - No se puede usar IA de ningún tipo.
-    - No pueden usar librerías ajenas a PyYAML .
-    - Fecha de entrega: 22/05/2026 
+  - No se puede usar IA de ningún tipo.
+  - No pueden usar librerías ajenas a PyYAML .
+  - Fecha de entrega: 22/05/2026 
 
