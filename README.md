@@ -67,3 +67,9 @@
   - No pueden usar librerías ajenas a PyYAML .
   - Fecha de entrega: 22/05/2026 
 
+
+### Prácticas con PIC16F13145
+Durante clases presenciales desarrollamos distintas aplicaciones para el microcontrolador PIC16F13145, se adjuntará el código fuente escrito en C, sin embargo, fueron desarrollados con las extensiones de MPLAB disponibles para VS Code y necesitan ser configuradas para funcionar. Adjuntaré los `.hex`
+
+1. BlinkingLED
+    Es el típico proyecto de luz que parpadea, pero con un reloj HFSINTOC (no estoy seguro de cómo se escribía) a alta frecuencia y el código correspondiente, un poco más complejo que hacerlo en chips de desarrollo como ESP32 y Arduino, pero más sencillo que programar el PIC a más bajo nivel ya que estamos usando las herramientas de MPLAB
