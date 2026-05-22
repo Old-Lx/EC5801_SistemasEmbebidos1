@@ -14,10 +14,10 @@
     - [x] La clase hijo que consumirá la clase Punto será un Vector cuyo origen siempre será 0 y debe tener un único método publico que permita calcular la magnitud del vector.
   
 3. Polimorfismo
-   - [ ] Se debe crear tres clases distintas, una representara un disco duro, otra representara una memoria ram y por último una representara una memoria sram.
-   - [ ] Para cada clase se tendrá un método de lectura y uno de escritura para un arreglo de tamaño N que representará su memoria interna. Se deberán modelar los retrasos de lectura y escritura para cada uno según su funcionamiento real (SRAM <- RAM <- Disco Duro).
-   - [ ] Se deberán crear dos funciones polimórficas que deben aceptar las tres clases como si se tratase de un bus manejador de memoria.
-   - [ ] Se tendrá un esquema de dos funciones una que se encarga de leer de una posición en memoria y otra que busca escribir en una posición de memoria.
+   - [x] Se debe crear tres clases distintas, una representara un disco duro, otra representara una memoria ram y por último una representara una memoria sram.
+   - [x] Para cada clase se tendrá un método de lectura y uno de escritura para un arreglo de tamaño N que representará su memoria interna. Se deberán modelar los retrasos de lectura y escritura para cada uno según su funcionamiento real (SRAM <- RAM <- Disco Duro).
+   - [x] Se deberán crear dos funciones polimórficas que deben aceptar las tres clases como si se tratase de un bus manejador de memoria.
+   - [x] Se tendrá un esquema de dos funciones una que se encarga de leer de una posición en memoria y otra que busca escribir en una posición de memoria.
 
 #### Restricciones
   - No se puede usar IA de ningun tipo.
@@ -27,15 +27,15 @@
 
 ### Tarea 2
 1. Manejo de Archivos
-    - [ ] Haciendo uso del manejador de archivos integrado en Python deben generar dos funciones que permitan hacer lo siguiente:
-        - [ ] Permitir Leer la información de un archivo sea de texto o binario.
-        - [ ] Permitir Escribir la información a un archivo de texto o binario.
-    - [ ] En base a estas funciones generar una clase que las contenga como método. Haciendo una verificación de que la ruta es valida utilizando la clase de tipo Path.
+    - [x] Haciendo uso del manejador de archivos integrado en Python deben generar dos funciones que permitan hacer lo siguiente:
+        - [x] Permitir Leer la información de un archivo sea de texto o binario.
+        - [x] Permitir Escribir la información a un archivo de texto o binario.
+    - [x] En base a estas funciones generar una clase que las contenga como método. Haciendo una verificación de que la ruta es valida utilizando la clase de tipo Path.
 
 2. PyYAML
-    - [ ] Usando la clase para el manejador de archivos como clase padre, generar una clase hija que herede sus métodos. Estos métodos se utilizarán como la base del stream de datos para las funciones de la librería PyYAML.
-    - [ ] Generar un método para la clase hija que permita abrir un archivo, pasar su stream de datos a la librería PyYAML y de esa forma sintetizar el diccionario asociado al archivo ‘.yaml‘
-    - [ ] El diccionario obtenido debe guardarse en un diccionario privado interno de la clase, siguiendo el siguiente esquema:
+    - [x] Usando la clase para el manejador de archivos como clase padre, generar una clase hija que herede sus métodos. Estos métodos se utilizarán como la base del stream de datos para las funciones de la librería PyYAML.
+    - [x] Generar un método para la clase hija que permita abrir un archivo, pasar su stream de datos a la librería PyYAML y de esa forma sintetizar el diccionario asociado al archivo ‘.yaml‘
+    - [x] El diccionario obtenido debe guardarse en un diccionario privado interno de la clase, siguiendo el siguiente esquema:
         {
             name:{
                 path: str,
@@ -43,9 +43,9 @@
             },
             ...
         }
-    - [ ] Para obtener el valor del archivo se debe tener una función de tipo GETTER, que permita obtener los diccionarios correspondientes basados en el nombre asignado.
-    - [ ] Se debe tener un método adicional que permita modificar un diccionario ya pre-existente usando su nombre como identificador.
-    - [ ] Por último, debe existir un método que permita guardar los valores modificados de el diccionario modificado en el disco haciendo uso de los streams de datos y la librería PyYAML.
+    - [x] Para obtener el valor del archivo se debe tener una función de tipo GETTER, que permita obtener los diccionarios correspondientes basados en el nombre asignado.
+    - [x] Se debe tener un método adicional que permita modificar un diccionario ya pre-existente usando su nombre como identificador.
+    - [x] Por último, debe existir un método que permita guardar los valores modificados de el diccionario modificado en el disco haciendo uso de los streams de datos y la librería PyYAML.
 
 3. Decoradores y Schemas
     - [ ] Se les proveerá un archivo de Python llamado schema_validator.py, el cual contiene una fabrica de decoradores llamado schema_validator. El uso de este decorador para cualquier función viene definido de la siguiente manera:
@@ -63,7 +63,13 @@
     - [ ] El schema que deben validar viene dado por el archivo .yaml a generar. Para esta tarea en particular este archivo aceptara N cantidad de elementos con los siguientes ítems: nombre, altura, peso, edad, lista de habilidades, descripcion.
 
 #### Restricciones
-    - No se puede usar IA de ningún tipo.
-    - No pueden usar librerías ajenas a PyYAML .
-    - Fecha de entrega: 22/05/2026 
+  - No se puede usar IA de ningún tipo.
+  - No pueden usar librerías ajenas a PyYAML .
+  - Fecha de entrega: 22/05/2026 
 
+
+### Prácticas con PIC16F13145
+Durante clases presenciales desarrollamos distintas aplicaciones para el microcontrolador PIC16F13145, se adjuntará el código fuente escrito en C, sin embargo, fueron desarrollados con las extensiones de MPLAB disponibles para VS Code y necesitan ser configuradas para funcionar. Adjuntaré los `.hex`
+
+1. BlinkingLED
+    Es el típico proyecto de luz que parpadea, pero con un reloj HFSINTOC (no estoy seguro de cómo se escribía) a alta frecuencia y el código correspondiente, un poco más complejo que hacerlo en chips de desarrollo como ESP32 y Arduino, pero más sencillo que programar el PIC a más bajo nivel ya que estamos usando las herramientas de MPLAB
