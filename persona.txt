@@ -1,0 +1,6 @@
+nombre: ['Lartrax', ' Morpheous', 'SegFault']
+altura: [1.8, 2, 999]
+peso: [80, 120, 999]
+edad: [23, 200, 999]
+habilidades: [['Ninguna'], ['Hacerte dormir o despertar', 'Señor de los sueños'], ['Te molesta cuadno codeas en C']]
+descripcion: ['Persona normal', 'Entidad que rige los sueños', 'Bug fastidioso']

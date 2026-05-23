@@ -1,0 +1,25 @@
+altura:
+- 1.8
+- 2
+- 999
+descripcion:
+- Persona normal
+- "Entidad que rige los sue\xC3\xB1os"
+- Bug fastidioso
+edad:
+- 23
+- 200
+- 999
+habilidades:
+- - Ninguna
+- - Hacerte dormir o despertar
+  - "Se\xC3\xB1or de los sue\xC3\xB1os"
+- - Te molesta cuadno codeas en C
+nombre:
+- Lartrax
+- ' Morpheous'
+- SegFault
+peso:
+- 80
+- 120
+- 999
