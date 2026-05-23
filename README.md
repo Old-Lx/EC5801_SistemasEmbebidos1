@@ -65,7 +65,52 @@
 #### Restricciones
   - No se puede usar IA de ningún tipo.
   - No pueden usar librerías ajenas a PyYAML .
-  - Fecha de entrega: 22/05/2026 
+  - Fecha de entrega: 22/05/2026 (hubo una extensión hasta el 26)
+
+### Tarea 3
+0. Importación de Módulos Necesarios:
+    ```Python
+        import logging
+
+        import threading
+
+        import time
+
+        from typing import Callable, Any, Dict, Optional
+    ```
+1. Registro de Eventos (Logging) en Python
+    **Objetivo**: Familiarizarte con la biblioteca logging de Python, que viene instalada por defecto, y comprender sus diferentes niveles y modos de funcionamiento.
+
+    - [ ] Crea un script de Python (.py) dedicado exclusivamente a probar el módulo logging.
+    - [ ] Asegúrate de implementar y demostrar el uso de los distintos niveles de registro (o severidad) de mensajes: DEBUG, INFO, WARNING, y ERROR.
+
+2. Gestión Avanzada de Hilos (Threading)
+    **Objetivo**: Aplicar tus conocimientos sobre concurrencia para diseñar e implementar una clase robusta que actúe como un Gestor de Hilos utilizando la biblioteca threading.
+
+    Requisitos de la Clase Gestora:
+
+    - [ ] Límite de Concurrencia: En la inicialización (init), la clase debe recibir un número entero que defina la cantidad total de hilos que pueden ejecutarse de manera concurrente, esto se conoce como Backlog.
+    - [ ] Registro de Hilos: Se debe implementar el método Thread_Allocate.
+    - [ ] Este método permitirá registrar un hilo, asignándole un nombre y el Callable (la función) que ejecutará.
+    - [ ] Debe aceptar argumentos posicionales y/o de palabra clave variádicos (*args y **kwargs) para la función a ejecutar.
+    - [ ] La información del hilo debe almacenarse en una estructura de datos interna (por ejemplo, un diccionario).
+    - [ ] Registro de Callbacks: Se debe implementar el método Thread_Callback_Register. Este método permitirá asociar funciones callback a los hilos ya registrados pero no en ejecución:
+        - [ ] Callback_Start: Función que se invoca justo al momento de iniciar la ejecución del hilo.
+        - [ ] Callback_End: Función que se invoca justo al momento de finalizar la ejecución del hilo.
+        - [ ] Inicio de Ejecución: Se debe implementar el método Thread_Start. Este método recibirá el nombre de un hilo registrado y comenzará su ejecución, respetando y gestionando los límites de concurrencia establecidos.
+
+3. Sincronización con Eventos (Threading.Event)
+    **Objetivo**: Ampliar la funcionalidad del Gestor de Hilos implementado, utilizando la clase Event de la biblioteca threading para garantizar la sincronización adecuada.
+
+    Requisitos de Ampliación:
+
+    - [ ] Evento de Terminación: Integra un objeto Event de terminación para cada uno de los hilos gestionados.
+    - [ ] Finalización Síncrona: Después de iniciar la función principal, asegúrate de realizar el correspondiente join() para cada hilo.
+    - [ ] Propósito: Esta implementación busca hacer síncrona la finalización de la ejecución del hilo (a través del evento y el join()) antes de que el resto del código principal del programa continúe su flujo.
+    - [ ] Detención de Hilos por Nombre: Implementa el método Thread_End en el Gestor de Hilos. Este método debe recibir el nombre de un hilo y, utilizando el objeto Event de terminación, señalar la detención de la ejecución para que el hilo pueda finalizar de forma controlada.
+
+#### Restricciones
+    - Para el viernes 29/05/2026 
 
 
 ### Prácticas con PIC16F13145
