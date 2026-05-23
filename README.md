@@ -79,12 +79,14 @@
         from typing import Callable, Any, Dict, Optional
     ```
 1. Registro de Eventos (Logging) en Python
+
     **Objetivo**: Familiarizarte con la biblioteca logging de Python, que viene instalada por defecto, y comprender sus diferentes niveles y modos de funcionamiento.
 
     - [ ] Crea un script de Python (.py) dedicado exclusivamente a probar el módulo logging.
     - [ ] Asegúrate de implementar y demostrar el uso de los distintos niveles de registro (o severidad) de mensajes: DEBUG, INFO, WARNING, y ERROR.
 
 2. Gestión Avanzada de Hilos (Threading)
+
     **Objetivo**: Aplicar tus conocimientos sobre concurrencia para diseñar e implementar una clase robusta que actúe como un Gestor de Hilos utilizando la biblioteca threading.
 
     Requisitos de la Clase Gestora:
@@ -100,6 +102,7 @@
         - [ ] Inicio de Ejecución: Se debe implementar el método Thread_Start. Este método recibirá el nombre de un hilo registrado y comenzará su ejecución, respetando y gestionando los límites de concurrencia establecidos.
 
 3. Sincronización con Eventos (Threading.Event)
+
     **Objetivo**: Ampliar la funcionalidad del Gestor de Hilos implementado, utilizando la clase Event de la biblioteca threading para garantizar la sincronización adecuada.
 
     Requisitos de Ampliación:
