@@ -69,7 +69,10 @@
 
 
 ### Prácticas con PIC16F13145
-Durante clases presenciales desarrollamos distintas aplicaciones para el microcontrolador PIC16F13145, se adjuntará el código fuente escrito en C, sin embargo, fueron desarrollados con las extensiones de MPLAB disponibles para VS Code y necesitan ser configuradas para funcionar. Adjuntaré los `.hex`
+Durante clases presenciales desarrollamos distintas aplicaciones para el microcontrolador PIC16F13145, se adjuntará el código fuente escrito en C, sin embargo, fueron desarrollados con las extensiones de MPLAB disponibles para VS Code y necesitan ser configuradas para funcionar. Adjuntaré los `.hex` siempre que lo recuerde xd
 
 1. BlinkingLED
     Es el típico proyecto de luz que parpadea, pero con un reloj HFSINTOC (no estoy seguro de cómo se escribía) a alta frecuencia y el código correspondiente, un poco más complejo que hacerlo en chips de desarrollo como ESP32 y Arduino, pero más sencillo que programar el PIC a más bajo nivel ya que estamos usando las herramientas de MPLAB
+
+2. GPIO/Interruptions
+    Proyecto que el toggle del Blinking LED y aprovecha las interrupciones del micro para generar un proyecto sencillo de interruptor de encendido y apagado, se usan conceptos de apuntadores a funciones para proceder, el código final es bastante sencillo.
