@@ -1,10 +1,12 @@
 import logging
 import sys
 
-''' Para esta parte me guíe con:
+''' 
+    Para esta parte me guíe con:
     https://www.dash0.com/guides/logging-in-python  En esta página hacen una radiografía brutal for dummies casi
     https://www.geeksforgeeks.org/python/logging-in-python/
     https://docs.python.org/3/howto/logging.html
+    
 '''
 
 logger = logging.getLogger(__name__)
