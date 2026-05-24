@@ -71,19 +71,16 @@
 0. Importación de Módulos Necesarios:
     ```Python
         import logging
-
         import threading
-
         import time
-
         from typing import Callable, Any, Dict, Optional
     ```
 1. Registro de Eventos (Logging) en Python
 
     **Objetivo**: Familiarizarte con la biblioteca logging de Python, que viene instalada por defecto, y comprender sus diferentes niveles y modos de funcionamiento.
 
-    - [ ] Crea un script de Python (.py) dedicado exclusivamente a probar el módulo logging.
-    - [ ] Asegúrate de implementar y demostrar el uso de los distintos niveles de registro (o severidad) de mensajes: DEBUG, INFO, WARNING, y ERROR.
+    - [x] Crea un script de Python (.py) dedicado exclusivamente a probar el módulo logging.
+    - [x] Asegúrate de implementar y demostrar el uso de los distintos niveles de registro (o severidad) de mensajes: DEBUG, INFO, WARNING, y ERROR.
 
 2. Gestión Avanzada de Hilos (Threading)
 
@@ -93,9 +90,9 @@
 
     - [ ] Límite de Concurrencia: En la inicialización (init), la clase debe recibir un número entero que defina la cantidad total de hilos que pueden ejecutarse de manera concurrente, esto se conoce como Backlog.
     - [ ] Registro de Hilos: Se debe implementar el método Thread_Allocate.
-    - [ ] Este método permitirá registrar un hilo, asignándole un nombre y el Callable (la función) que ejecutará.
-    - [ ] Debe aceptar argumentos posicionales y/o de palabra clave variádicos (*args y **kwargs) para la función a ejecutar.
-    - [ ] La información del hilo debe almacenarse en una estructura de datos interna (por ejemplo, un diccionario).
+        - [ ] Este método permitirá registrar un hilo, asignándole un nombre y el Callable (la función) que ejecutará.
+        - [ ] Debe aceptar argumentos posicionales y/o de palabra clave variádicos (*args y **kwargs) para la función a ejecutar.
+        - [ ] La información del hilo debe almacenarse en una estructura de datos interna (por ejemplo, un diccionario).
     - [ ] Registro de Callbacks: Se debe implementar el método Thread_Callback_Register. Este método permitirá asociar funciones callback a los hilos ya registrados pero no en ejecución:
         - [ ] Callback_Start: Función que se invoca justo al momento de iniciar la ejecución del hilo.
         - [ ] Callback_End: Función que se invoca justo al momento de finalizar la ejecución del hilo.
