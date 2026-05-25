@@ -88,15 +88,15 @@
 
     Requisitos de la Clase Gestora:
 
-    - [ ] Límite de Concurrencia: En la inicialización (init), la clase debe recibir un número entero que defina la cantidad total de hilos que pueden ejecutarse de manera concurrente, esto se conoce como Backlog.
-    - [ ] Registro de Hilos: Se debe implementar el método Thread_Allocate.
-        - [ ] Este método permitirá registrar un hilo, asignándole un nombre y el Callable (la función) que ejecutará.
-        - [ ] Debe aceptar argumentos posicionales y/o de palabra clave variádicos (*args y **kwargs) para la función a ejecutar.
-        - [ ] La información del hilo debe almacenarse en una estructura de datos interna (por ejemplo, un diccionario).
-    - [ ] Registro de Callbacks: Se debe implementar el método Thread_Callback_Register. Este método permitirá asociar funciones callback a los hilos ya registrados pero no en ejecución:
-        - [ ] Callback_Start: Función que se invoca justo al momento de iniciar la ejecución del hilo.
-        - [ ] Callback_End: Función que se invoca justo al momento de finalizar la ejecución del hilo.
-        - [ ] Inicio de Ejecución: Se debe implementar el método Thread_Start. Este método recibirá el nombre de un hilo registrado y comenzará su ejecución, respetando y gestionando los límites de concurrencia establecidos.
+    - [x] Límite de Concurrencia: En la inicialización (init), la clase debe recibir un número entero que defina la cantidad total de hilos que pueden ejecutarse de manera concurrente, esto se conoce como Backlog.
+    - [x] Registro de Hilos: Se debe implementar el método Thread_Allocate.
+        - [x] Este método permitirá registrar un hilo, asignándole un nombre y el Callable (la función) que ejecutará.
+        - [x] Debe aceptar argumentos posicionales y/o de palabra clave variádicos (*args y **kwargs) para la función a ejecutar.
+        - [x] La información del hilo debe almacenarse en una estructura de datos interna (por ejemplo, un diccionario).
+    - [x] Registro de Callbacks: Se debe implementar el método Thread_Callback_Register. Este método permitirá asociar funciones callback a los hilos ya registrados pero no en ejecución:
+        - [x] Callback_Start: Función que se invoca justo al momento de iniciar la ejecución del hilo.
+        - [x] Callback_End: Función que se invoca justo al momento de finalizar la ejecución del hilo.
+    - [x] Inicio de Ejecución: Se debe implementar el método Thread_Start. Este método recibirá el nombre de un hilo registrado y comenzará su ejecución, respetando y gestionando los límites de concurrencia establecidos.
 
 3. Sincronización con Eventos (Threading.Event)
 
@@ -104,10 +104,10 @@
 
     Requisitos de Ampliación:
 
-    - [ ] Evento de Terminación: Integra un objeto Event de terminación para cada uno de los hilos gestionados.
-    - [ ] Finalización Síncrona: Después de iniciar la función principal, asegúrate de realizar el correspondiente join() para cada hilo.
-    - [ ] Propósito: Esta implementación busca hacer síncrona la finalización de la ejecución del hilo (a través del evento y el join()) antes de que el resto del código principal del programa continúe su flujo.
-    - [ ] Detención de Hilos por Nombre: Implementa el método Thread_End en el Gestor de Hilos. Este método debe recibir el nombre de un hilo y, utilizando el objeto Event de terminación, señalar la detención de la ejecución para que el hilo pueda finalizar de forma controlada.
+    - [x] Evento de Terminación: Integra un objeto Event de terminación para cada uno de los hilos gestionados.
+    - [x] Finalización Síncrona: Después de iniciar la función principal, asegúrate de realizar el correspondiente join() para cada hilo.
+    - [x] Propósito: Esta implementación busca hacer síncrona la finalización de la ejecución del hilo (a través del evento y el join()) antes de que el resto del código principal del programa continúe su flujo.
+    - [x] Detención de Hilos por Nombre: Implementa el método Thread_End en el Gestor de Hilos. Este método debe recibir el nombre de un hilo y, utilizando el objeto Event de terminación, señalar la detención de la ejecución para que el hilo pueda finalizar de forma controlada.
 
 #### Restricciones
     - Para el viernes 29/05/2026 
