@@ -32,7 +32,7 @@ class spider: # Se llama araña porque gestiona los hilos de manera natural
         self.thread_dicts = {}
     
     # Función para asignar un hilo para una tarea
-    def ThreadAllocate(self, thread_name: str, function: Callable[params], *args, **kwargs):
+    def ThreadAllocate(self, thread_name: str, function: Callable, *args, **kwargs):
         if (len(self.thread_dicts) < self.thread_num):
             thread = threading.Thread(target=function, args=(*args,), kwargs={**kwargs})
             thread.name = thread_name
@@ -43,8 +43,8 @@ class spider: # Se llama araña porque gestiona los hilos de manera natural
                             'isDaemon': thread.daemon,
                             'isAlive': thread.is_alive(),
                             'ident': thread.ident,
-                            'CallbackStart': Callable[params],
-                            'CallbackEnd': Callable[params],
+                            'CallbackStart': Callable,
+                            'CallbackEnd': Callable,
                             'event': threading.Event()
                         }
                 }
@@ -53,7 +53,7 @@ class spider: # Se llama araña porque gestiona los hilos de manera natural
         else:
             logger.warning("No hay más hilos disponibles")
     
-    def Thread_Callback_Register(self, thread_name: str, callback_start: Callable[params] = lambda x: 0, callback_end: Callable[params] = lambda x: 0):
+    def Thread_Callback_Register(self, thread_name: str, callback_start: Callable = lambda x: 0, callback_end: Callable = lambda x: 0):
         # Si el hilo no se está ejecutando, añadimos los callbacks
         if(not(self.thread_dicts[thread_name]['isAlive'])):
             self.thread_dicts[thread_name]['CallbackStart'] = callback_start
@@ -111,23 +111,25 @@ def callback_end():
 def test_spider():
     logger.info("¡Iniciando prueba!")
     
-    spider = spider(thread_num=2)
+    spider_threading = spider(thread_num=2)
     
-    spider.ThreadAllocate(
+    spider_threading.ThreadAllocate(
         thread_name="hilo_1", 
         function=task, 
         nombre_tarea="Descarga de Datos", 
         tiempo_espera=2
     )
     
-    spider.Thread_Callback_Register(
+    spider_threading.Thread_Callback_Register(
         thread_name="hilo_1",
         callback_start=callback_start,
         callback_end=callback_end
     )
     
-    spider.Thread_Start("hilo_1")
-    spider.Thread_Sync("hilo_1")
-    spider.Thread_End("hilo_1")
+    spider_threading.Thread_Start("hilo_1")
+    spider_threading.Thread_Sync("hilo_1")
+    spider_threading.Thread_End("hilo_1")
     
     logger.info("Prueba terminada xoxo")
+
+test_spider()
