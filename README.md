@@ -143,6 +143,7 @@ Se debe implementar los mecanismos de envío, recepción y procesamiento automá
     - Para el viernes 12/06/2026
     - Prohibición de IA: No se permite el uso de herramientas de inteligencia artificial para la resolución de la tarea.
     - Librerías Permitidas: Solo se pueden utilizar módulos estándar de Python, específicamente logging, threading, y queue.
+    - Registro de Eventos: El gestor debe incluir un sistema de logging interno que registre la creación, envío, recepción y errores del sistema.
 
 
 ### Prácticas con PIC16F13145
