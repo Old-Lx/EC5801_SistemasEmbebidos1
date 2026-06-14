@@ -63,3 +63,24 @@ class Messages_Manager:
             logger.debug("Cola destruída")
         except:
             logging.warning("La cola no pudo destruírse correctamente")
+
+    def read_q(self, q_id):
+        try:
+            Lock.acquire()
+            current_Q = self.Q_dict[q_id]
+            current_callback = self.Callback_dict[q_id]
+            Lock.release()
+            logger.debug("Cola y callback leídos")
+        except:
+            logger.warning("Hubo un problema que impidió leer la cola")
+
+        return current_Q, current_callback
+    
+    def write_q(self, q_id, item_2_write):
+        Lock.acquire()
+        try:
+            self.Q_dict[q_id].put(item_2_write)
+            logger.debug("Se agregó un elemento a la Queue")
+        except:
+            logger.warning("Hubo un problema al intentar escribir en la cola")
+        
