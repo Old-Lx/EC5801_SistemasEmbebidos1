@@ -6,14 +6,18 @@ import sys
 
 logger = logging.getLogger(__name__)
 # logger.setLevel(logging.DEBUG) # The default is NOTSET que implica herencia del logger padre
-logging.basicConfig(level=logging.WARNING, format='%(asctime)s - %(levelname)s - %(message)s')
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s') # Para configurar mejor el logger
+
+log_format = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+formatter = logging.Formatter(log_format)
 
 console_handler = logging.StreamHandler(stream=sys.stdout)
 file_handler = logging.FileHandler("app.log")
 
 console_handler.setLevel(logging.DEBUG)
+console_handler.setFormatter(formatter)
+
 file_handler.setLevel(logging.WARNING)
+file_handler.setFormatter(formatter)
 
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
@@ -71,10 +75,9 @@ class Messages_Manager:
     # Inciso 2
     def read_q(self, q_id: str):
         try:
-            lock.acquire()
-            current_Q = self.Q_dict[q_id]
-            current_callback = self.Callback_dict[q_id]
-            lock.release()
+            with lock:
+                current_Q = self.Q_dict[q_id]
+                current_callback = self.Callback_dict[q_id]
             logger.debug("Cola y callback leídos")
         except:
             logger.warning("Hubo un problema que impidió leer la cola")
@@ -82,23 +85,22 @@ class Messages_Manager:
         return current_Q, current_callback
     
     def write_q(self, q_id: str, item_2_write: any):
-        lock.acquire()
-        try:
-            self.Q_dict[q_id].put(item_2_write)
-            logger.debug("Se agregó un elemento a la Queue")
-        except:
-            logger.warning("Hubo un problema al intentar escribir en la cola")
-        lock.release()
+        with lock:
+            try:
+                self.Q_dict[q_id].put(item_2_write)
+                logger.debug("Se agregó un elemento a la Queue")
+            except Exception as e:
+                logger.warning("Hubo un problema al intentar escribir en la cola")
+                logger.exception("Específicamente: ")
     
     # Inciso 3
     def send(self, q_id: str, data: any):
-        lock.acquire()
-        try:
-            self.write_q(q_id, data)
-            logger.debug("Se envió la data a la cola")
-        except:
-            logger.warning("No se pudo enviar data a la cola")
-        lock.release()
+        with lock:
+            try:
+                self.write_q(q_id, data)
+                logger.debug("Se envió la data a la cola")
+            except:
+                logger.warning("No se pudo enviar data a la cola")
     
     def receive(self, q_id: str):
         try:
@@ -119,7 +121,7 @@ class Messages_Manager:
                 data = self.receive(q_id)
                 self.Callback_dict[q_id](data)
 
-def generic_callback():
+def generic_callback(var: any):
     print("Callback genérico")
 
 def main():
@@ -131,15 +133,14 @@ def main():
     manager.creatio(size=5, callback=lambda x: print(f"Lambda callback: {x}"))
 
     # Verifico el envío
-    manager.send('Queu0', 'Mensaje A para Queu0')
-    manager.send('Queu0', 'Mensaje B para Queu0')
-    manager.send('Queu1', 'Mensaje para Queu1')
+    manager.send('Queue0', 'Mensaje A para Queue0')
+    manager.send('Queue0', 'Mensaje B para Queue0')
+    manager.send('Queue1', 'Mensaje para Queue1')
 
     # Probamos el poll también
     manager.poll()
 
     # Destruímos un callback a ver si funciona
-    manager.destructio('Queu0')
+    manager.destructio('Queue0')
 
-if __name__ == "__main__":
-    main()
+main()
